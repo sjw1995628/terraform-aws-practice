@@ -1,10 +1,10 @@
- terraform { 
-  cloud { 
-    
-    organization = "mtc-tf-jwson" 
+terraform {
+  cloud {
 
-    workspaces { 
-      name = "ecs" 
-    } 
-  } 
+    organization = "mtc-tf-jwson"
+
+    workspaces {
+      name = "terraform-aws-ecs"
+    }
+  }
 }
