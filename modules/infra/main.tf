@@ -89,8 +89,8 @@ resource "aws_iam_role" "ecs_execution_role" {
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [{
-      Action    = "sts:AssumeRole",
-      Effect    = "Allow",
+      Action = "sts:AssumeRole",
+      Effect = "Allow",
       Principal = {
         Service = "ecs-tasks.amazonaws.com"
       }
@@ -113,23 +113,23 @@ resource "aws_vpc_security_group_ingress_rule" "app" {
   security_group_id            = aws_security_group.app.id
   referenced_security_group_id = aws_security_group.alb.id
   ip_protocol                  = "-1"
-  tags={
-    Name="allow-all-from-alb-to-app"
+  tags = {
+    Name = "allow-all-from-alb-to-app"
   }
 }
 resource "aws_vpc_security_group_egress_rule" "app" {
   security_group_id = aws_security_group.app.id
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "-1"
-  tags={
-    Name="allow-all-from app-to-world"
+  tags = {
+    Name = "allow-all-from app-to-world"
   }
 }
 resource "aws_vpc_security_group_egress_rule" "alb" {
-  security_group_id = aws_security_group.alb.id
+  security_group_id            = aws_security_group.alb.id
   referenced_security_group_id = aws_security_group.app.id
-  ip_protocol       = "-1"
-  tags={
-    Name="allow-all-from-alb-to-app"
+  ip_protocol                  = "-1"
+  tags = {
+    Name = "allow-all-from-alb-to-app"
   }
 }

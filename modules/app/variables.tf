@@ -8,25 +8,34 @@ variable "app_path" {
 variable "image_version" {
   type = string
 }
-variable "app_name"{
+variable "app_name" {
   type = string
 }
-variable "port"{
-  type= number
+variable "port" {
+  type = number
 }
-variable "execution_role_arn"{
-  type=string
+variable "execution_role_arn" {
+  type = string
 }
 variable "cluster_arn" {
   type = string
 }
 variable "is_public" {
-  default=true
-  type=bool
+  default = true
+  type    = bool
 }
 variable "subnets" {
-  type=list(string)
+  type = list(string)
 }
 variable "app_security_group_id" {
-  type=string
+  type = string
+}
+variable "vpc_id" {
+  type = string
+}
+variable "path_pattern" {
+  type = string
+}
+variable "alb_listener_arn" {
+  type = string
 }
