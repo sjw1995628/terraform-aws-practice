@@ -10,4 +10,7 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "ap-northeast-2"
+  default_tags {
+    tags = { App = "mtc-app" }
+  }
 }

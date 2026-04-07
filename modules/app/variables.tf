@@ -39,3 +39,7 @@ variable "path_pattern" {
 variable "alb_listener_arn" {
   type = string
 }
+variable "healthcheck_path" {
+  type    = string
+  default = "/*"
+}

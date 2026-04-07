@@ -47,7 +47,7 @@ resource "aws_lb" "this" {
   name                       = "mtc-ecs-lb"
   internal                   = false
   load_balancer_type         = "application"
-  subnets                    = [for subnet in aws_subnet.this : subnet.id]
+  subnets                    = [for az, id in { for s in aws_subnet.this : s.availability_zone => s.id... } : id[0]]
   security_groups            = [aws_security_group.alb.id]
   enable_deletion_protection = false
 }
